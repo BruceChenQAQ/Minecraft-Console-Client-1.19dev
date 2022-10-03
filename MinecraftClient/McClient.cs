@@ -61,7 +61,7 @@ namespace MinecraftClient
         private float playerPitch;
         private double motionY;
         public enum MovementType { Sneak, Walk, Sprint }
-        public int currentMovementSpeed = 4;
+        public int currentMovementSpeed = 2;
         private int sequenceId; // User for player block synchronization (Aka. digging, placing blocks, etc..)
 
         private readonly string host;

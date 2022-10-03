@@ -354,6 +354,7 @@ namespace MinecraftClient.Protocol.Handlers
                             SendPacket(PacketTypesOut.Pong, dataTypes.GetInt(ID));
                             break;
                         case PacketTypesIn.JoinGame:
+                            window_actions.Clear();
                             handler.OnGameJoined();
                             int playerEntityID = dataTypes.ReadNextInt(packetData);
                             handler.OnReceivePlayerEntityID(playerEntityID);
@@ -1336,7 +1337,7 @@ namespace MinecraftClient.Protocol.Handlers
                                 else
                                 {
                                     // Elements as Short - 1.17.0 and below
-                                    dataTypes.ReadNextShort(packetData);
+                                    elements = (int)dataTypes.ReadNextShort(packetData);
                                 }
 
                                 Dictionary<int, Item> inventorySlots = new();
@@ -1371,10 +1372,8 @@ namespace MinecraftClient.Protocol.Handlers
                                 byte windowID = dataTypes.ReadNextByte(packetData);
                                 short actionID = dataTypes.ReadNextShort(packetData);
                                 bool accepted = dataTypes.ReadNextBool(packetData);
-                                if (!accepted)
-                                {
+                                if (!accepted && actionID >= 1)
                                     SendWindowConfirmation(windowID, actionID, accepted);
-                                }
                             }
                             break;
                         case PacketTypesIn.ResourcePackSend:
