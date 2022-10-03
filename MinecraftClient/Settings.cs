@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -954,9 +955,9 @@ namespace MinecraftClient
         /// <returns>Float number</returns>
         public static float str2float(string str)
         {
-            if (float.TryParse(str.Trim(), out float num))
+            if (float.TryParse(str.Trim(), NumberStyles.Any, CultureInfo.CurrentCulture, out float num))
                 return num;
-            else if (float.TryParse(Regex.Replace(str, @"[^.^\d]", string.Empty), out float num2))
+            else if (float.TryParse(Regex.Replace(str, @"[^.^\d]", string.Empty), NumberStyles.Any, CultureInfo.CurrentCulture, out float num2))
                 return num2;
             else
             {
@@ -972,10 +973,9 @@ namespace MinecraftClient
         /// <returns>Double number</returns>
         public static double str2double(string str)
         {
-            ConsoleIO.WriteLine("str = " + BitConverter.ToString(Encoding.ASCII.GetBytes(str)).Replace("-", " "));
-            if (double.TryParse(str.Trim(), out double num))
+            if (double.TryParse(str.Trim(), NumberStyles.Any, CultureInfo.CurrentCulture, out double num))
                 return num;
-            else if (double.TryParse(Regex.Replace(str, @"[^.^\d]", string.Empty), out double num2))
+            else if (double.TryParse(Regex.Replace(str, @"[^.^\d]", string.Empty), NumberStyles.Any, CultureInfo.CurrentCulture, out double num2))
                 return num2;
             else
             {
