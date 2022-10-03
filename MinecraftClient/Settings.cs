@@ -956,6 +956,8 @@ namespace MinecraftClient
         {
             if (float.TryParse(str.Trim(), out float num))
                 return num;
+            else if (float.TryParse(Regex.Replace(str, @"[^.^\d]", string.Empty), out float num2))
+                return num2;
             else
             {
                 ConsoleIO.WriteLogLine(Translations.Get("error.setting.str2int", str));
@@ -970,13 +972,11 @@ namespace MinecraftClient
         /// <returns>Double number</returns>
         public static double str2double(string str)
         {
-            ConsoleIO.WriteLogLine("str = '" + str + "', trim = '" + str.Trim() + "'");
-            ConsoleIO.WriteLogLine("double.TryParse(str) = '" + double.TryParse(str, out double res1) + "', res = '" + res1 + "'");
-            ConsoleIO.WriteLogLine("double.TryParse(str.Trim()) = '" + double.TryParse(str.Trim(), out double res2) + "', res = '" + res2 + "'");
-            ConsoleIO.WriteLogLine("float.TryParse(str) = '" + float.TryParse(str, out float res3) + "', res = '" + res3 + "'");
-            ConsoleIO.WriteLogLine("float.TryParse(str.Trim()) = '" + float.TryParse(str.Trim(), out float res4) + "', res = '" + res4 + "'");
+            ConsoleIO.WriteLine("str = " + BitConverter.ToString(Encoding.ASCII.GetBytes(str)).Replace("-", " "));
             if (double.TryParse(str.Trim(), out double num))
                 return num;
+            else if (double.TryParse(Regex.Replace(str, @"[^.^\d]", string.Empty), out double num2))
+                return num2;
             else
             {
                 ConsoleIO.WriteLogLine(Translations.Get("error.setting.str2double", str));
