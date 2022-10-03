@@ -970,6 +970,11 @@ namespace MinecraftClient
         /// <returns>Double number</returns>
         public static double str2double(string str)
         {
+            ConsoleIO.WriteLogLine("str = '" + str + "', trim = '" + str.Trim() + "'");
+            ConsoleIO.WriteLogLine("double.TryParse(str) = '" + double.TryParse(str, out double res1) + "', res = '" + res1 + "'");
+            ConsoleIO.WriteLogLine("double.TryParse(str.Trim()) = '" + double.TryParse(str.Trim(), out double res2) + "', res = '" + res2 + "'");
+            ConsoleIO.WriteLogLine("float.TryParse(str) = '" + float.TryParse(str, out float res3) + "', res = '" + res3 + "'");
+            ConsoleIO.WriteLogLine("float.TryParse(str.Trim()) = '" + float.TryParse(str.Trim(), out float res4) + "', res = '" + res4 + "'");
             if (double.TryParse(str.Trim(), out double num))
                 return num;
             else
