@@ -816,7 +816,7 @@ namespace MinecraftClient.Protocol.Handlers
                             List<MapIcon> icons = new();
 
                             // 1,9 + = needs tracking position to be true to get the icons
-                            if (protocolVersion <= MC_1_9_Version || trackingPosition)
+                            if (protocolVersion <= MC_1_16_5_Version || trackingPosition)
                             {
                                 iconcount = dataTypes.ReadNextVarInt(packetData);
 
@@ -1372,7 +1372,7 @@ namespace MinecraftClient.Protocol.Handlers
                                 byte windowID = dataTypes.ReadNextByte(packetData);
                                 short actionID = dataTypes.ReadNextShort(packetData);
                                 bool accepted = dataTypes.ReadNextBool(packetData);
-                                if (!accepted && actionID >= 1)
+                                if (!accepted)
                                     SendWindowConfirmation(windowID, actionID, accepted);
                             }
                             break;

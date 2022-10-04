@@ -129,7 +129,7 @@ namespace MinecraftClient.ChatBots
                 cachedMaps.Add(mapid, map);
             }
 
-            if (autoRenderOnUpdate)
+            if (autoRenderOnUpdate && map.Width > 0 && map.Height > 0)
                 GenerateMapImage(map);
         }
 
