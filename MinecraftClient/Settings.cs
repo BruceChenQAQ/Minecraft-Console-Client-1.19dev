@@ -45,6 +45,8 @@ namespace MinecraftClient
 
             public static ushort ServerPort = 25565;
 
+            public static string Login = string.Empty;
+
             public static string Username = string.Empty;
 
             public static string Password = string.Empty;
@@ -242,16 +244,16 @@ namespace MinecraftClient
                 {
                     switch (positionalIndex)
                     {
-                        case 0: 
-                            Config.Main.General.Account.Login = argument;
+                        case 0:
+                            InternalConfig.Login = argument;
                             break;
-                        case 1: 
-                            InternalConfig.Password = argument; 
+                        case 1:
+                            InternalConfig.Password = argument;
                             break;
-                        case 2: 
-                            Config.Main.SetServerIP(new MainConfig.ServerInfoConfig(argument), true); 
+                        case 2:
+                            Config.Main.SetServerIP(new MainConfig.ServerInfoConfig(argument), true);
                             break;
-                        case 3: 
+                        case 3:
                             // SingleCommand = argument; 
                             break;
                     }
@@ -269,7 +271,7 @@ namespace MinecraftClient
             {
                 [TomlProperty("Current Version")]
                 public string CurrentVersion { get; set; } = Program.BuildInfo ?? "Development Build";
-                
+
                 [TomlProperty("Latest Version")]
                 public string LatestVersion { get; set; } = "Unknown";
 
@@ -297,15 +299,15 @@ namespace MinecraftClient
                 [NonSerialized]
                 public static readonly string[] AvailableLang =
                 {
-                    "af_za", "ar_sa", "ast_es", "az_az", "ba_ru", "bar", "be_by", "bg_bg", "br_fr", "brb", "bs_ba", "ca_es", 
-                    "cs_cz", "cy_gb", "da_dk", "de_at", "de_ch", "de_de", "el_gr", "en_au", "en_ca", "en_gb", "en_nz", "eo_uy", 
-                    "es_ar", "es_cl", "es_ec", "es_es", "es_mx", "es_uy", "es_ve", "esan", "et_ee", "eu_es", "fa_ir", "fi_fi", 
-                    "fil_ph", "fo_fo", "fr_ca", "fr_fr", "fra_de", "fur_it", "fy_nl", "ga_ie", "gd_gb", "gl_es", "haw_us", "he_il", 
-                    "hi_in", "hr_hr", "hu_hu", "hy_am", "id_id", "ig_ng", "io_en", "is_is", "isv", "it_it", "ja_jp", "jbo_en", 
-                    "ka_ge", "kk_kz", "kn_in", "ko_kr", "ksh", "kw_gb", "la_la", "lb_lu", "li_li", "lmo", "lt_lt", "lv_lv", "lzh", 
-                    "mk_mk", "mn_mn", "ms_my", "mt_mt", "nds_de", "nl_be", "nl_nl", "nn_no", "oc_fr", "ovd", "pl_pl", "pt_br", 
-                    "pt_pt", "qya_aa", "ro_ro", "rpr", "ru_ru", "se_no", "sk_sk", "sl_si", "so_so", "sq_al", "sr_sp", "sv_se", 
-                    "sxu", "szl", "ta_in", "th_th", "tl_ph", "tlh_aa", "tok", "tr_tr", "tt_ru", "uk_ua", "val_es", "vec_it", 
+                    "af_za", "ar_sa", "ast_es", "az_az", "ba_ru", "bar", "be_by", "bg_bg", "br_fr", "brb", "bs_ba", "ca_es",
+                    "cs_cz", "cy_gb", "da_dk", "de_at", "de_ch", "de_de", "el_gr", "en_au", "en_ca", "en_gb", "en_nz", "eo_uy",
+                    "es_ar", "es_cl", "es_ec", "es_es", "es_mx", "es_uy", "es_ve", "esan", "et_ee", "eu_es", "fa_ir", "fi_fi",
+                    "fil_ph", "fo_fo", "fr_ca", "fr_fr", "fra_de", "fur_it", "fy_nl", "ga_ie", "gd_gb", "gl_es", "haw_us", "he_il",
+                    "hi_in", "hr_hr", "hu_hu", "hy_am", "id_id", "ig_ng", "io_en", "is_is", "isv", "it_it", "ja_jp", "jbo_en",
+                    "ka_ge", "kk_kz", "kn_in", "ko_kr", "ksh", "kw_gb", "la_la", "lb_lu", "li_li", "lmo", "lt_lt", "lv_lv", "lzh",
+                    "mk_mk", "mn_mn", "ms_my", "mt_mt", "nds_de", "nl_be", "nl_nl", "nn_no", "oc_fr", "ovd", "pl_pl", "pt_br",
+                    "pt_pt", "qya_aa", "ro_ro", "rpr", "ru_ru", "se_no", "sk_sk", "sl_si", "so_so", "sq_al", "sr_sp", "sv_se",
+                    "sxu", "szl", "ta_in", "th_th", "tl_ph", "tlh_aa", "tok", "tr_tr", "tt_ru", "uk_ua", "val_es", "vec_it",
                     "vi_vn", "yi_de", "yo_ng", "zh_cn", "zh_hk", "zh_tw", "zlm_arab"
                 };
 
@@ -360,6 +362,7 @@ namespace MinecraftClient
 
                     General.Account.Login ??= string.Empty;
                     General.Account.Password ??= string.Empty;
+                    InternalConfig.Login = General.Account.Login;
 
                     General.Server.Host ??= string.Empty;
 
@@ -750,7 +753,7 @@ namespace MinecraftClient
                     }
                     else
                     {
-                        return false;  
+                        return false;
                     }
                 }
 
@@ -799,7 +802,7 @@ namespace MinecraftClient
                 /// <returns>A IDictionary<string, object> containing a name and a vlaue key pairs of variables</returns>
                 public Dictionary<string, object> GetVariables()
                 {
-                    Dictionary<string, object> res =  new(VarObject);
+                    Dictionary<string, object> res = new(VarObject);
                     foreach ((string varName, string varData) in VarStirng)
                         res.Add(varName, varData);
                     return res;
@@ -841,7 +844,7 @@ namespace MinecraftClient
                                 switch (varname_lower)
                                 {
                                     case "username": result.Append(InternalConfig.Username); break;
-                                    case "login": result.Append(Settings.Config.Main.General.Account.Login); break;
+                                    case "login": result.Append(InternalConfig.Login); break;
                                     case "serverip": result.Append(InternalConfig.ServerIP); break;
                                     case "serverport": result.Append(InternalConfig.ServerPort); break;
                                     case "datetime":
@@ -966,7 +969,40 @@ namespace MinecraftClient
 
                 public string TeleportRequest = @"^([a-zA-Z0-9_]+) has requested (?:to|that you) teleport to (?:you|them)\.$";
 
-                public void OnSettingUpdate() { }
+                public void OnSettingUpdate()
+                {
+                    if (UserDefined)
+                    {
+                        bool checkResult = true;
+
+                        try { _ = new Regex(Public); }
+                        catch (ArgumentException)
+                        {
+                            checkResult = false;
+                            ConsoleIO.WriteLineFormatted("§cIllegal regular expression: ChatFormat.Public = " + Public);
+                        }
+
+                        try { _ = new Regex(Private); }
+                        catch (ArgumentException)
+                        {
+                            checkResult = false;
+                            ConsoleIO.WriteLineFormatted("§cIllegal regular expression: ChatFormat.Private = " + Private);
+                        }
+
+                        try { _ = new Regex(TeleportRequest); }
+                        catch (ArgumentException)
+                        {
+                            checkResult = false;
+                            ConsoleIO.WriteLineFormatted("§cIllegal regular expression: ChatFormat.TeleportRequest = " + TeleportRequest);
+                        }
+
+                        if (!checkResult)
+                        {
+                            UserDefined = false;
+                            ConsoleIO.WriteLineFormatted("§cChatFormat: User-defined regular expressions are disabled.");
+                        }
+                    }
+                }
             }
         }
 
@@ -1052,6 +1088,13 @@ namespace MinecraftClient
                 {
                     get { return ChatBots.ChatLog.Config; }
                     set { ChatBots.ChatLog.Config = value; ChatBots.ChatLog.Config.OnSettingUpdate(); }
+                }
+
+                [TomlPrecedingComment("$config.ChatBot.Farmer$")]
+                public ChatBots.Farmer.Configs Farmer
+                {
+                    get { return ChatBots.Farmer.Config; }
+                    set { ChatBots.Farmer.Config = value; ChatBots.Farmer.Config.OnSettingUpdate(); }
                 }
 
                 [TomlPrecedingComment("$config.ChatBot.FollowPlayer$")]
@@ -1228,7 +1271,7 @@ namespace MinecraftClient
             };
         }
     }
-    
+
     public static class BrandInfoTypeExtensions
     {
         public static string? ToBrandString(this BrandInfoType info)

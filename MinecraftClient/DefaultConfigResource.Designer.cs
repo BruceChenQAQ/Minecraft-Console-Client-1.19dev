@@ -104,6 +104,27 @@ namespace MinecraftClient {
         
         /// <summary>
         ///   Looks up a localized string similar to ╔═════════════════════════════════════╗
+        ///║   Enchant                           ║
+        ///║             ╔════════════════════╗  ║
+        ///║             ║         Top        ║  ║
+        ///║  ╔═══╦═══╗  ╠════════════════════╣  ║
+        ///║  ║ 0 ║ 1 ║  ║        Middle      ║  ║
+        ///║  ╚═══╩═══╝  ╠════════════════════╣  ║
+        ///║             ║        Bottom      ║  ║
+        ///║             ╚════════════════════╝  ║
+        ///║ Inventory                           ║
+        ///║╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗║
+        ///║║ 2 ║ 3 ║ 4 ║ 5 ║ 6 ║ 7 ║ 8 ║ 9 ║10 ║║
+        ///║╠═══╬═══╬═══╬═══╬══ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ContainerType_EnchantingTable {
+            get {
+                return ResourceManager.GetString("ContainerType_EnchantingTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ╔═════════════════════════════════════╗
         ///║              Container              ║
         ///║           ╔═══╗                     ║
         ///║           ║ 0 ║                     ║

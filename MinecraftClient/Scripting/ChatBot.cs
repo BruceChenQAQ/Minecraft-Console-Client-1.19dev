@@ -43,7 +43,7 @@ namespace MinecraftClient
         private readonly List<string> registeredCommands = new();
         private readonly object delayTasksLock = new();
         private readonly List<TaskWithDelay> delayedTasks = new();
-        private McClient Handler
+        protected McClient Handler
         {
             get
             {
@@ -359,6 +359,42 @@ namespace MinecraftClient
         public virtual void OnInventoryClose(int inventoryId) { }
 
         /// <summary>
+        /// When received inventory/container/window properties from the server.
+        /// Used for Frunaces, Enchanting Table, Beacon, Brewing stand, Stone cutter, Loom and Lectern
+        /// More info about: https://wiki.vg/Protocol#Set_Container_Property
+        /// </summary>
+        /// <param name="inventoryID">Inventory ID</param>
+        /// <param name="propertyId">Property ID</param>
+        /// <param name="propertyValue">Property Value</param>
+        public virtual void OnInventoryProperties(byte inventoryID, short propertyId, short propertyValue) { }
+
+        /// <summary>
+        /// When received enchantments from the server this method is called
+        /// Enchantment levels are the levels of enchantment (eg. I, II, III, IV, V) (eg. Smite IV, Power III, Knockback II ..)
+        /// Enchantment level requirements are the levels that player needs to have in order to enchant the item
+        /// </summary>
+        /// <param name="topEnchantment">Enchantment in the top most slot</param>
+        /// <param name="middleEnchantment">Enchantment in the middle slot</param>
+        /// <param name="bottomEnchantment">Enchantment in the bottom slot</param>
+        /// <param name="topEnchantmentLevel">Enchantment level for the enchantment in the top most slot</param>
+        /// <param name="middleEnchantmentLevel">Enchantment level for the enchantment in the middle slot</param>
+        /// <param name="bottomEnchantmentLevel">Enchantment level for the enchantment in the bottom slot</param>
+        /// <param name="topEnchantmentLevelRequirement">Levels required by player for the enchantment in the top most slot</param>
+        /// <param name="middleEnchantmentLevelRequirement">Levels required by player for the enchantment in the middle slot</param>
+        /// <param name="bottomEnchantmentLevelRequirement">Levels required by player for the enchantment in the bottom slot</param>
+        public virtual void OnEnchantments(
+            Enchantment topEnchantment,
+            Enchantment middleEnchantment,
+            Enchantment bottomEnchantment,
+            short topEnchantmentLevel,
+            short middleEnchantmentLevel,
+            short bottomEnchantmentLevel,
+            short topEnchantmentLevelRequirement,
+            short middleEnchantmentLevelRequirement,
+            short bottomEnchantmentLevelRequirement)
+        { }
+
+        /// <summary>
         /// Called when a player joined the game
         /// </summary>
         /// <param name="uuid">UUID of the player</param>
@@ -532,7 +568,7 @@ namespace MinecraftClient
             //User-defined regex for private chat messages
             if (Config.ChatFormat.UserDefined && !string.IsNullOrWhiteSpace(Config.ChatFormat.Private))
             {
-                Match regexMatch = new Regex(Config.ChatFormat.Private).Match(text);
+                Match regexMatch = Regex.Match(text, Config.ChatFormat.Private);
                 if (regexMatch.Success && regexMatch.Groups.Count >= 3)
                 {
                     sender = regexMatch.Groups[1].Value;
@@ -643,7 +679,7 @@ namespace MinecraftClient
             //User-defined regex for public chat messages
             if (Config.ChatFormat.UserDefined && !string.IsNullOrWhiteSpace(Config.ChatFormat.Public))
             {
-                Match regexMatch = new Regex(Config.ChatFormat.Public).Match(text);
+                Match regexMatch = Regex.Match(text, Config.ChatFormat.Public);
                 if (regexMatch.Success && regexMatch.Groups.Count >= 3)
                 {
                     sender = regexMatch.Groups[1].Value;
@@ -746,7 +782,7 @@ namespace MinecraftClient
             //User-defined regex for teleport requests
             if (Config.ChatFormat.UserDefined && !string.IsNullOrWhiteSpace(Config.ChatFormat.TeleportRequest))
             {
-                Match regexMatch = new Regex(Config.ChatFormat.TeleportRequest).Match(text);
+                Match regexMatch = Regex.Match(text, Config.ChatFormat.TeleportRequest);
                 if (regexMatch.Success && regexMatch.Groups.Count >= 2)
                 {
                     sender = regexMatch.Groups[1].Value;

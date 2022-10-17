@@ -535,7 +535,7 @@ namespace MinecraftClient.Protocol.Handlers
                     {
                         session.ServerIDhash = serverIDhash;
                         session.ServerPublicKey = serverPublicKey;
-                        SessionCache.Store(Config.Main.General.Account.Login.ToLower(), session);
+                        SessionCache.Store(InternalConfig.Login.ToLower(), session);
                     }
                     else
                     {
@@ -766,6 +766,11 @@ namespace MinecraftClient.Protocol.Handlers
         }
 
         public bool SendCreativeInventoryAction(int slot, ItemType item, int count, Dictionary<string, object>? nbt)
+        {
+            return false; //Currently not implemented
+        }
+
+        public bool ClickContainerButton(int windowId, int buttonId)
         {
             return false; //Currently not implemented
         }
