@@ -8,7 +8,7 @@
 
 [English](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README.md) | [Nederlands](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Dutch.md) | [Српски](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Serbian_Cyrillic.md) | [Türkçe](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Turkish.md) | [Tiếng Việt](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Vietnamese.md) | [简体中文](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Chinese_Simplified.md)
 
-[![GitHub Actions build status](https://github.com/MCCTeam/Minecraft-Console-Client/actions/workflows/build-and-release.yml/badge.svg)](https://github.com/MCCTeam/Minecraft-Console-Client/releases/latest) <a href="https://discord.gg/sfBv4TtpC9"><img src="https://img.shields.io/discord/1018553894831403028?color=5865F2&logo=discord&logoColor=white" alt="Discord 服务器" /></a>
+[![GitHub Actions 构建状态](https://github.com/MCCTeam/Minecraft-Console-Client/actions/workflows/build-and-release.yml/badge.svg)](https://github.com/MCCTeam/Minecraft-Console-Client/releases/latest) <a href="https://discord.gg/sfBv4TtpC9"><img src="https://img.shields.io/discord/1018553894831403028?color=5865F2&logo=discord&logoColor=white" alt="Discord 服务器" /></a>
 
 </div>
 
