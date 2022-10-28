@@ -4,7 +4,7 @@
 
 # Minecraft Console Client (MCC)
 
-[Documentation](https://mccteam.github.io/) | [Download](#download) | [Installation](https://mccteam.github.io/guide/installation.html) | [Configuration](https://mccteam.github.io/guide/configuration.html) | [Usage](https://mccteam.github.io/guide/usage.html)
+[Документација](https://mccteam.github.io/) | [Преузимање](#download) | [Инсталација](https://mccteam.github.io/guide/installation.html) | [Подешавање](https://mccteam.github.io/guide/configuration.html) | [Коришћење](https://mccteam.github.io/guide/usage.html)
 
 [English](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README.md) | [Nederlands](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Dutch.md) | [Српски](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Serbian_Cyrillic.md) | [Türkçe](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Turkish.md) | [Tiếng Việt](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Vietnamese.md) | [简体中文](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Chinese_Simplified.md)
 
