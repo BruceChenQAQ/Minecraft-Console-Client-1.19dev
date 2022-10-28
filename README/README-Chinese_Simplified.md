@@ -2,9 +2,9 @@
 
 <img src="https://i.pics.rs/LLDhE.png" alt="Logo"/>
 
-# Minecraft Console Client (MCC)
+# Minecraft 控制台客户端 (MCC)
 
-[Documentation](https://mccteam.github.io/) | [Download](#download) | [Installation](https://mccteam.github.io/guide/installation.html) | [Configuration](https://mccteam.github.io/guide/configuration.html) | [Usage](https://mccteam.github.io/guide/usage.html)
+[文档](https://mccteam.github.io/) | [下载](#download) | [安装](https://mccteam.github.io/guide/installation.html) | [配置](https://mccteam.github.io/guide/configuration.html) | [使用](https://mccteam.github.io/guide/usage.html)
 
 [English](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README.md) | [Nederlands](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Dutch.md) | [Српски](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Serbian_Cyrillic.md) | [Türkçe](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Turkish.md) | [Tiếng Việt](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Vietnamese.md) | [简体中文](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Chinese_Simplified.md)
 
