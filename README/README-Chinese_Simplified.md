@@ -2,11 +2,13 @@
 
 <img src="https://i.pics.rs/LLDhE.png" alt="Logo"/>
 
-# Minecraft 控制台客户端 (MCC)
+# Minecraft Console Client (MCC)
 
-[文档](https://mccteam.github.io/) | [下载](#download) | [安装](https://mccteam.github.io/guide/installation.html) | [配置](https://mccteam.github.io/guide/configuration.html) | [使用](https://mccteam.github.io/guide/usage.html)
+[Documentation](https://mccteam.github.io/) | [Download](#download) | [Installation](https://mccteam.github.io/guide/installation.html) | [Configuration](https://mccteam.github.io/guide/configuration.html) | [Usage](https://mccteam.github.io/guide/usage.html)
 
-[![GitHub Actions 构建状态](https://github.com/MCCTeam/Minecraft-Console-Client/actions/workflows/build-and-release.yml/badge.svg)](https://github.com/MCCTeam/Minecraft-Console-Client/releases/latest) <a href="https://discord.gg/sfBv4TtpC9"><img src="https://img.shields.io/discord/1018553894831403028?color=5865F2&logo=discord&logoColor=white" alt="Discord 服务器" /></a>
+[English](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README.md) | [Nederlands](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Dutch.md) | [Српски](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Serbian_Cyrillic.md) | [Türkçe](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Turkish.md) | [Tiếng Việt](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Vietnamese.md) | [简体中文](https://github.com/MCCTeam/Minecraft-Console-Client/blob/master/README/README-Chinese_Simplified.md)
+
+[![GitHub Actions build status](https://github.com/MCCTeam/Minecraft-Console-Client/actions/workflows/build-and-release.yml/badge.svg)](https://github.com/MCCTeam/Minecraft-Console-Client/releases/latest) <a href="https://discord.gg/sfBv4TtpC9"><img src="https://img.shields.io/discord/1018553894831403028?color=5865F2&logo=discord&logoColor=white" alt="Discord 服务器" /></a>
 
 </div>
 
@@ -47,17 +49,17 @@
 
 ## 翻译 Minecraft 控制台客户端 (MCC) 🌍
 
-请查看：[如何为MCC添加或更新翻译](https://mccteam.github.io/guide/contibuting.html#translations)。
+To improve translations for MCC, please visit: [Crowdin - Minecraft Console Client](https://crwd.in/minecraft-console-client).
 
 MCC 现在支持这些语言（按字母顺序排列）：
-  * `de.ini`: Deutsch - German
+  * `de.ini` : Deutsch - German
   * `en.ini`: English - English
-  * `fr.ini`: Français (France) - French
-  * `ru.ini`: Русский (Russkiy) - Russian
-  * `tr.ini` (100.00% translated) : Türkçe (Türkiye) - Turkish
-  * `vi.ini`: Tiếng Việt (Việt Nam) - Vietnamese
-  * `zh-Hant.ini`: 繁體中文 - Chinese Traditional
-  * `zh-Hans.ini`: 简体中文 - Chinese Simplified
+  * `fr.ini` : Français (France) - French
+  * `ru.ini` : Русский (Russkiy) - Russian
+  * `tr.ini` : Türkçe (Türkiye) - Turkish
+  * `vi.ini` : Tiếng Việt (Việt Nam) - Vietnamese
+  * `zh-Hans.ini` : 简体中文 - Chinese Simplified
+  * `zh-Hant.ini` : 繁體中文 - Chinese Traditional
 
 ## 从源码构建 🏗️
 
