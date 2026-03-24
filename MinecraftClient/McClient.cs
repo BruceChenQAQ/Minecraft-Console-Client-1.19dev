@@ -261,9 +261,9 @@ namespace MinecraftClient
                         Log.Info(string.Format(Translations.mcc_joined, Config.Main.Advanced.InternalCmdChar.ToLogString()));
 
                         cmdprompt = new CancellationTokenSource();
-                        ConsoleInteractive.ConsoleReader.BeginReadThread();
-                        ConsoleInteractive.ConsoleReader.MessageReceived += ConsoleReaderOnMessageReceived;
-                        ConsoleInteractive.ConsoleReader.OnInputChange += ConsoleIO.AutocompleteHandler;
+                        ConsoleIO.Backend.BeginReadThread();
+                        ConsoleIO.Backend.MessageReceived += ConsoleReaderOnMessageReceived;
+                        ConsoleIO.Backend.OnInputChange += ConsoleIO.AutocompleteHandler;
                     }
                     else
                     {
@@ -305,9 +305,9 @@ namespace MinecraftClient
                 }
                 else if (InternalConfig.InteractiveMode)
                 {
-                    ConsoleInteractive.ConsoleReader.StopReadThread();
-                    ConsoleInteractive.ConsoleReader.MessageReceived -= ConsoleReaderOnMessageReceived;
-                    ConsoleInteractive.ConsoleReader.OnInputChange -= ConsoleIO.AutocompleteHandler;
+                    ConsoleIO.Backend.StopReadThread();
+                    ConsoleIO.Backend.MessageReceived -= ConsoleReaderOnMessageReceived;
+                    ConsoleIO.Backend.OnInputChange -= ConsoleIO.AutocompleteHandler;
                     Program.HandleFailure();
                 }
 
@@ -322,9 +322,9 @@ namespace MinecraftClient
                 {
                     if (InternalConfig.InteractiveMode)
                     {
-                        ConsoleInteractive.ConsoleReader.StopReadThread();
-                        ConsoleInteractive.ConsoleReader.MessageReceived -= ConsoleReaderOnMessageReceived;
-                        ConsoleInteractive.ConsoleReader.OnInputChange -= ConsoleIO.AutocompleteHandler;
+                        ConsoleIO.Backend.StopReadThread();
+                        ConsoleIO.Backend.MessageReceived -= ConsoleReaderOnMessageReceived;
+                        ConsoleIO.Backend.OnInputChange -= ConsoleIO.AutocompleteHandler;
                         Program.HandleFailure();
                     }
                 }
@@ -362,9 +362,9 @@ namespace MinecraftClient
 
                     Log.Info("Successfully transferred connection and logged in.");
                     cmdprompt = new CancellationTokenSource();
-                    ConsoleInteractive.ConsoleReader.BeginReadThread();
-                    ConsoleInteractive.ConsoleReader.MessageReceived += ConsoleReaderOnMessageReceived;
-                    ConsoleInteractive.ConsoleReader.OnInputChange += ConsoleIO.AutocompleteHandler;
+                    ConsoleIO.Backend.BeginReadThread();
+                    ConsoleIO.Backend.MessageReceived += ConsoleReaderOnMessageReceived;
+                    ConsoleIO.Backend.OnInputChange += ConsoleIO.AutocompleteHandler;
                 }
                 else
                 {
@@ -392,9 +392,9 @@ namespace MinecraftClient
                 }
                 else if (InternalConfig.InteractiveMode)
                 {
-                    ConsoleInteractive.ConsoleReader.StopReadThread();
-                    ConsoleInteractive.ConsoleReader.MessageReceived -= ConsoleReaderOnMessageReceived;
-                    ConsoleInteractive.ConsoleReader.OnInputChange -= ConsoleIO.AutocompleteHandler;
+                    ConsoleIO.Backend.StopReadThread();
+                    ConsoleIO.Backend.MessageReceived -= ConsoleReaderOnMessageReceived;
+                    ConsoleIO.Backend.OnInputChange -= ConsoleIO.AutocompleteHandler;
                     Program.HandleFailure();
                 }
 
@@ -714,9 +714,9 @@ namespace MinecraftClient
             
             if (!will_restart)
             {
-                ConsoleInteractive.ConsoleReader.StopReadThread();
-                ConsoleInteractive.ConsoleReader.MessageReceived -= ConsoleReaderOnMessageReceived;
-                ConsoleInteractive.ConsoleReader.OnInputChange -= ConsoleIO.AutocompleteHandler;
+                ConsoleIO.Backend.StopReadThread();
+                ConsoleIO.Backend.MessageReceived -= ConsoleReaderOnMessageReceived;
+                ConsoleIO.Backend.OnInputChange -= ConsoleIO.AutocompleteHandler;
                 Program.HandleFailure(null, false, reason);
             }
         }
