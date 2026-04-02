@@ -16,7 +16,7 @@ namespace MinecraftClient.Tui
 {
     public class MainTuiView : UserControl
     {
-        private const int MaxLogLines = 5000;
+        private const int MaxLogLines = 200;
         private const int CtrlCDoublePressMsec = 1500;
 
         private readonly ObservableCollection<string> _logLines = new();
@@ -78,6 +78,7 @@ namespace MinecraftClient.Tui
             {
                 ItemsSource = _logControls,
                 Focusable = false,
+                ItemsPanel = new FuncTemplate<Panel?>(() => new VirtualizingStackPanel()),
             };
 
             _logScrollViewer = new ScrollViewer
